@@ -13,13 +13,13 @@ char names[max_schedule][100];
 char newName[100];
 
 void clearBuffer() {
-    // Fun√ß√£o que realiza a limpeza do buffer.
+    // FunÁ„o que realiza a limpeza do buffer.
     int c;
     while ((c = getchar()) != '\n' && c != EOF) {}
 }
 
 int lookUpId(int code) {
-    // Fun√ß√£o que procura onde o agendamento est√° indexado, retorna 'i' como posi√ß√£o do index e -1 caso n√£o encontre um c√≥digo equivalente ao fornecido.
+    // FunÁ„o que procura onde o agendamento est· indexado, retorna 'i' como posiÁ„o do index e -1 caso n„o encontre um cÛdigo equivalente ao fornecido.
     int i;
     for (i = 0; i < space; i++) {
         if (code == storeSchedules[i][0]) {
@@ -32,7 +32,7 @@ int lookUpId(int code) {
 }
 
 int scheduleCheck() {
-    // Fun√ß√£o que realiza a busca por agendamentos id√™nticos, retorna o index do agendamento igual ou -1 caso n√£o encontre.
+    // FunÁ„o que realiza a busca por agendamentos idÍnticos, retorna o index do agendamento igual ou -1 caso n„o encontre.
     int i, j;
     int found = 0;
 
@@ -53,7 +53,7 @@ int scheduleCheck() {
 }
 
 int generateCode() {
-    //Fun√ß√£o que gera um c√≥digo aleat√≥rio e √∫nico com base na soma dos hor√°rios e datas fornecidos.
+    //FunÁ„o que gera um cÛdigo aleatÛrio e ˙nico com base na soma dos hor·rios e datas fornecidos.
     int random, sum = 0, i, found = 0;
     for (i = 0; i < 6; i++) {
         sum += newStuff[i];
@@ -77,7 +77,7 @@ int generateCode() {
 }
 
 int consulting(int accessType, int index) {
-    // Fun√ß√£o que exibe os dados de um agendamento com dois tipos de acesso, um que requisita o c√≥digo do usu√°rio e outro que se 
+    // FunÁ„o que exibe os dados de um agendamento com dois tipos de acesso, um que requisita o cÛdigo do usu·rio e outro que se 
     // baseia no index de um agendamento, fornecido anteriormente.
     int j, found = 0, code = 0;
     
@@ -108,8 +108,8 @@ int consulting(int accessType, int index) {
 }
 
 void getName(int accessType, int index) {
-    // Fun√ß√£o que recebe o nome do cliente com dois tipos de acesso, um que apenas guarda o nome numa vari√°vel tempor√°ria  
-    // e outro que o aloca numa vari√°vel de armazenamento.
+    // FunÁ„o que recebe o nome do cliente com dois tipos de acesso, um que apenas guarda o nome numa vari·vel tempor·ria  
+    // e outro que o aloca numa vari·vel de armazenamento.
     int i;
     printf("|---------------------------------\n");
     printf("|Digite o nome: ");
@@ -126,8 +126,8 @@ void getName(int accessType, int index) {
 }
 
 int fetchYear(int year, int currentYear) {
-    // Fun√ß√£o que recebe o ano do agendamento e verifica se este √© valido, retornando a vari√°vel "year" 
-    // corrigida ou sem altera√ß√µes. 
+    // FunÁ„o que recebe o ano do agendamento e verifica se este È valido, retornando a vari·vel "year" 
+    // corrigida ou sem alteraÁıes. 
     while (1) {
         if (year < currentYear) {
         printf("|Formato invalido, por favor tente novamente.\n"
@@ -142,8 +142,8 @@ int fetchYear(int year, int currentYear) {
 }
 
 int fetchMonth(int year, int currentYear, int month, int currentMonth) {
-    // Fun√ß√£o que recebe o m√™s do agendamento e verifica se este √© valido, retornando a vari√°vel "month" 
-    // corrigida ou sem altera√ß√µes.
+    // FunÁ„o que recebe o mÍs do agendamento e verifica se este È valido, retornando a vari·vel "month" 
+    // corrigida ou sem alteraÁıes.
     while (1) {
         if (month > 12 || month < 0 || (year == currentYear && month < currentMonth)) {
         printf("|Formato invalido, por favor tente novamente.\n"
@@ -158,8 +158,8 @@ int fetchMonth(int year, int currentYear, int month, int currentMonth) {
 }
 
 int fetchDay(int year, int currentYear, int month, int currentMonth, int day, int currentDay) {
-    // Fun√ß√£o que recebe o dia do agendamento e verifica se este √© valido, dentro dos par√¢metros de um ano ser bissexto ou o m√™s possuir menos que 31 dias,  
-    // retornando a vari√°vel "day" corrigida ou sem altera√ß√µes.
+    // FunÁ„o que recebe o dia do agendamento e verifica se este È valido, dentro dos par‚metros de um ano ser bissexto ou o mÍs possuir menos que 31 dias,  
+    // retornando a vari·vel "day" corrigida ou sem alteraÁıes.
     int maxDay;
     if (((year % 4 == 0 && year % 100 != 0) || year % 400 == 0) && month == 2) {
         maxDay = 29;
@@ -186,8 +186,8 @@ int fetchDay(int year, int currentYear, int month, int currentMonth, int day, in
 }
 
 int fetchHour(int year, int currentYear, int month, int currentMonth, int day, int currentDay, int hour, int currentHour) {
-    // Fun√ß√£o que recebe a hora do agendamento e verifica se esta √© valida, retornando a vari√°vel "hour" 
-    // corrigida ou sem altera√ß√µes.
+    // FunÁ„o que recebe a hora do agendamento e verifica se esta È valida, retornando a vari·vel "hour" 
+    // corrigida ou sem alteraÁıes.
     while (1) {
         if (hour > 23 || hour < 0 || (year == currentYear && month == currentMonth && day == currentDay && hour < currentHour)) {
         printf("|Formato invalido, por favor tente novamente.\n"
@@ -202,8 +202,8 @@ int fetchHour(int year, int currentYear, int month, int currentMonth, int day, i
 }
 
 int fetchMin(int year, int currentYear, int month, int currentMonth, int day, int currentDay, int hour, int currentHour, int minutes, int currentMin) {
-    // Fun√ß√£o que recebe os minutos do agendamento e verifica se estes s√£o validos, retornando a vari√°vel "minutes" 
-    // corrigida ou sem altera√ß√µes.
+    // FunÁ„o que recebe os minutos do agendamento e verifica se estes s„o validos, retornando a vari·vel "minutes" 
+    // corrigida ou sem alteraÁıes.
     while (1) {
         if (minutes >= 60 || minutes < 0 || (year == currentYear && month == currentMonth && day == currentDay &&
         hour == currentHour && minutes < currentMin)) {
@@ -219,8 +219,8 @@ int fetchMin(int year, int currentYear, int month, int currentMonth, int day, in
 }
 
 int scheduler(int currentYear, int currentMonth, int currentDay, int currentHour, int currentMin) {
-	// Fun√ß√£o respons√°vel por gerar os agendamentos, armazenando as datas e hor√°rios na v√°riavel tempor√°ria "newStuff", e depois os transportando ap√≥s uma verifica√ß√£o
-    // para a vari√°vel de armazenamento "storeSchedules", e o nome em "newName" para a vari√°vel de armazenamento "Names". 
+	// FunÁ„o respons·vel por gerar os agendamentos, armazenando as datas e hor·rios na v·riavel tempor·ria "newStuff", e depois os transportando apÛs uma verificaÁ„o
+    // para a vari·vel de armazenamento "storeSchedules", e o nome em "newName" para a vari·vel de armazenamento "Names". 
     int i, j, found = 0, hour, minutes, day, month, year;
 
     while (1) {
@@ -265,7 +265,7 @@ int scheduler(int currentYear, int currentMonth, int currentDay, int currentHour
         if (scheduleCheck() != -1) {
             printf("|Horario Indisponivel, tente novamente\n");
             clearBuffer();
-            } else {
+			} else {
                 strcpy(names[space], newName);
                 newStuff[0] = generateCode();
                 for (j = 0; j < 6; j++) {
@@ -278,9 +278,10 @@ int scheduler(int currentYear, int currentMonth, int currentDay, int currentHour
 }
 
 int erase() {
-    // Fun√ß√£o que apaga um agendamento, enviando os agendamentos e nomes ap√≥s o requisitado uma posi√ß√£o "para cima" na matriz, e apagando o 
-    // √∫ltimo valor que foi duplicado.
+    // FunÁ„o que apaga um agendamento, enviando os agendamentos e nomes apÛs o requisitado uma posiÁ„o "para cima" na matriz, e apagando o 
+    // ˙ltimo valor que foi duplicado.
     int i, j, index = 0, code = 0, temp;
+    char choice;
     
     if (space == 0) {
         printf("|---------------------------------\n"
@@ -289,36 +290,46 @@ int erase() {
     } else {
         printf("|---------------------------------\n"
         "|Informe o codigo: ");
-        scanf("%d", &code);
+        scanf(" %d", &code);
         index = lookUpId(code);
         
         if (index != -1) {
-            temp = space;
-            for (i = index; i < temp - 1; i++) {
-                for (j = 0; j < 6; j++) {
-                    storeSchedules[i][j] = storeSchedules[i+1][j];
-                }
-            }
-            for (i = index; i < temp - 1; i++) {
-                strcpy(names[i], names[i+1]);
-                
-            }
-            for (j = 0; j < 6; j++) {
-                storeSchedules[temp-1][j] = 0;
-            }
-            strcpy(names[temp-1], "");
-            
-            printf("|Produto apagado com sucesso!\n"
-            "|---------------------------------\n");
-            space--;
-            return 0;
+        	printf("|Agendamento a ser apagado: \n");
+        	consulting(0, index);
+        	printf("|Voce realmente quer apagar? [y/n]\n"
+			"|Escolha: ");
+        	scanf(" %c", &choice);
+        	if (choice == 'y' || choice == 'Y') {
+        		temp = space;
+	            for (i = index; i < temp - 1; i++) {
+	                for (j = 0; j < 6; j++) {
+	                    storeSchedules[i][j] = storeSchedules[i+1][j];
+	                }
+	            }
+	            for (i = index; i < temp - 1; i++) {
+	                strcpy(names[i], names[i+1]);
+	                
+	            }
+	            for (j = 0; j < 6; j++) {
+	                storeSchedules[temp-1][j] = 0;
+	            }
+	            strcpy(names[temp-1], "");
+	            
+	            printf("|Produto apagado com sucesso!\n"
+	            "|---------------------------------\n");
+	            space--;
+	            return 0;
+			} else {
+				printf("|---------------------------------\n");
+				return 2;
+			}
         }
     }
     return 1;
 }
 
 void displayOptions() {
-    // Fun√ß√£o que escreve na tela as op√ß√µes de atualiza√ß√£o de um agendamento.
+    // FunÁ„o que escreve na tela as opÁıes de atualizaÁ„o de um agendamento.
     printf("|Voce deseja atualizar:\n"
     "|1. Dia\n"
     "|2. Mes\n"
@@ -331,8 +342,8 @@ void displayOptions() {
 }
 
 int editing(int currentYear, int currentMonth, int currentDay, int currentHour, int currentMin) {
-    // Fun√ß√£o que permite a atualiza√ß√£o de um agendamento, permitindo a mudan√ßa de todos os seus atributos menos o seu c√≥digo.
-    // Ap√≥s uma altera√ß√£o, os resultados s√£o printados no console.
+    // FunÁ„o que permite a atualizaÁ„o de um agendamento, permitindo a mudanÁa de todos os seus atributos menos o seu cÛdigo.
+    // ApÛs uma alteraÁ„o, os resultados s„o printados no console.
     int i, index = 0, code = 0, choice = 0;
     int hour, minutes, day, month, year;
     
@@ -418,7 +429,7 @@ int editing(int currentYear, int currentMonth, int currentDay, int currentHour, 
 }
 
 void displayAll() {
-    // Fun√ß√£o adicional de qualidade de vida, mostra todos os agendamentos e seus c√≥digos.
+    // FunÁ„o adicional de qualidade de vida, mostra todos os agendamentos e seus cÛdigos.
     int i;
     if (space == 0) {
         printf("|---------------------------------\n"
@@ -433,8 +444,8 @@ void displayAll() {
 }
 
 void displayMenu() {
-    // Fun√ß√£o que apresenta um "menu" do programa no console, com todas as suas features, o atual n√∫mero de agendamentos
-    // presentes no sistema e o m√°ximo de agendamentos poss√≠veis.
+    // FunÁ„o que apresenta um "menu" do programa no console, com todas as suas features, o atual n˙mero de agendamentos
+    // presentes no sistema e o m·ximo de agendamentos possÌveis.
     printf("|Agendamentos: %d/%d\n"
     "|O que voce gostaria de fazer?\n"
     "|1. Cadastrar\n"
@@ -447,8 +458,8 @@ void displayMenu() {
 }
 
 int main() {
-    // Fun√ß√£o main que permite a escolha de uma funcionalidade do programa, define os par√¢metros de tempo, confirma a adi√ß√£o 
-    // de um cadastro somando a vari√°vel "space" e possui uma op√ß√£o de encerrar o programa.
+    // FunÁ„o main que permite a escolha de uma funcionalidade do programa, define os par‚metros de tempo, confirma a adiÁ„o 
+    // de um cadastro somando a vari·vel "space" e possui uma opÁ„o de encerrar o programa.
 	int choice = 0;
 
     time_t now = time(NULL);
@@ -460,7 +471,7 @@ int main() {
     int currentMin = t->tm_min;
 
     printf("|---------------------------------\n"
-    "|Bem-vindo ao Salao Lambimia\n"
+    "|Bem-vindo ao Salao Lambimia     |\n"
     "|---------------------------------\n");
     displayMenu();
 
